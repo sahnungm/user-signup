@@ -60,16 +60,17 @@ def check(entry):
     return ""
     
 def email_check(email):
+  
     if email != "":
-        return check(email)
-    else:
-        for a in email:
-            if a == "@":
-                for b in range(email[a], len(email)-a-1, 1):
-                    if b == ".":
+        test = check(email)
+    if test == "":
+        for a in range(len(email)):
+            if email[a] == "@":
+                for b in range(a, len(email)-a-1, 1):
+                    if email[b+a] == ".":
                         return ""
-    if email == "":
-        return ""
+    if test != "":
+        return test
 
     return "Please enter a valid email.(example@email.com)"
 
